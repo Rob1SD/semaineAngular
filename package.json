@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/bucketDips/semaineAngular/issues"
   },
-  "homepage": "https://github.com/bucketDips/semaineAngular#readme"
+  "homepage": "https://github.com/bucketDips/semaineAngular#readme",
+  "dependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4"
+  }
 }
