@@ -1,7 +1,8 @@
-class Pokemon {
-	constructor(n) {
-		this.name=n;
-	}
-}
-// let pikachu = new Pokemon("pikachu");
-// console.log(pikachu.name);
+var Pokemon = /** @class */ (function () {
+    function Pokemon(_nom) {
+        this.nom = _nom;
+        console.log(this.nom);
+    }
+    return Pokemon;
+}());
+var pika = new Pokemon("Pikachu");
