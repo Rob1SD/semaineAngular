@@ -6,4 +6,4 @@ class Pokemon {
   }
 }
 
-var pika=new Pokemon("Pikachu");
+let pika=new Pokemon("Pikachu");
