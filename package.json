@@ -1,0 +1,19 @@
+{
+  "name": "semaineangular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bucketDips/semaineAngular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bucketDips/semaineAngular/issues"
+  },
+  "homepage": "https://github.com/bucketDips/semaineAngular#readme"
+}
