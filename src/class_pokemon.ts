@@ -20,29 +20,51 @@ export class Pokemon {
 export function getFirstAttacker(p1:Pokemon,p2:Pokemon) {
     return p1.speed > p2.speed ? p1 : p2;
 }
-export function fight(p1:Pokemon,p2:Pokemon) {
+function playerTurn(p1:Pokemon,p2:Pokemon) {
+
+}
+export async function fight(p1:Pokemon,p2:Pokemon) {
     let player1:Pokemon = getFirstAttacker(p1,p2);
     let player2:Pokemon = player1===p1 ? p2 : p1;
-    var turn = 1;
-    while (player1.healthPoint > 0 && player2.healthPoint > 0) {
+    let turn = 1;
+    while(player1.healthPoint > 0 && player2.healthPoint > 0) {
         console.log("===================================================");
         console.log("Tour : " + turn)
         console.log(player1.nom + " : " + player1.healthPoint + " hp");
         console.log(player2.nom + " : " + player2.healthPoint + " hp");
-
-
-        player1.attack(player2);
+        await pause(player1,player2);
         console.log(player1.nom + " attaque " + player2.nom)
         console.log(player2.nom + " : " + player2.healthPoint + " hp");
         if (player2.healthPoint > 0) {
-            player2.attack(player1);
+            await pause(player2,player1);
             console.log(player2.nom + " attaque " + player1.nom)
             console.log(player1.nom + " : " + player1.healthPoint + " hp");
 
         }
         ++turn;
+        //will happen only after pause is done
+
     }
-    let winner:Pokemon = player2.healthPoint > 0 ? player2 : player1;
-    console.log(winner.nom + " a gagné");
-    return winner;
+
+
+
 }
+export function getWinner(p1:Pokemon, p2:Pokemon){
+    return p1.healthPoint > 0 ? p1 : p2;
+}
+function pause(p1:Pokemon,p2:Pokemon) {
+    return new Promise(resolve => setTimeout(() => {
+        p1.attack(p2);
+        resolve();
+    }, 1000));
+}
+
+// let pika = new Pokemon ("Pikachu",90,22, 100);
+// let sala = new Pokemon("Salameche",80,22,110);
+// let winner = new Pokemon("toto",80,22,110);
+//
+// fight(pika,sala).then(function(){
+//     winner = getWinner(pika,sala);
+//     console.log("le gagnant est " + winner.nom);
+// });
+
